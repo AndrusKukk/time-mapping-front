@@ -9,4 +9,33 @@
   </div>
 </template>
 
+<script>
 
+let saveInJn = function () {
+  this.$http.post('/public/createactivity', this.activities)
+      .then(response =>{this.activity = response.data
+        this.errorText = ''
+
+      })
+      .catch(error => {
+        this.errorText = error.response.data.errorMessage
+        this.activity = ''
+      })
+}
+
+export default {
+  name: 'Createactivity',
+  components: {},
+  data: function () {
+    return {
+      activities: {},
+      activity:'',
+      errorText:'',
+    }
+  },
+  methods: {
+    saveInHtml: saveInJn
+  }
+}
+
+</script>

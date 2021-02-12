@@ -1,10 +1,10 @@
 <template>
-  <div class="signup">
-    <h1>Please sign up</h1>
-    <input v-model="users.firstName" placeholder="First name"><br><br>
-    <input v-model="users.lastName" placeholder="Last name"><br><br>
-    <input v-model="users.email" placeholder="Email"><br><br>
-    <input v-model="users.password" type="password" placeholder="Password"><br><br>
+  <div id="app" class="signup" >
+    <h1>Please sign up</h1><br>
+    <input id="app" v-model="users.firstName" placeholder="First name" ><br><br>
+    <input id="app" v-model="users.lastName" placeholder="Last name" ><br><br>
+    <input id="app" v-model="users.email" placeholder="Email" ><br><br>
+    <input id="app" v-model="users.password" type="password" placeholder="Password"><br><br>
     <button v-on:click="saveInHtml()">Sign up!</button><br><br>
     <h5 align="center">{{errorText}}</h5>
   </div>

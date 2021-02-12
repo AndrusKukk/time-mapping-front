@@ -5,6 +5,7 @@ import Signin from '../views/Signin.vue'
 import Signup from '../views/Signup.vue'
 import Createproject from '../views/Createproject.vue'
 import Createactivity from '../views/Createactivity.vue'
+import DataSingleActivity from "@/views/DataSingleActivity";
 
 
 Vue.use(VueRouter)
@@ -34,6 +35,11 @@ const routes = [
     path: '/createactivity',
     name: 'Createactivity',
     component: Createactivity
+  },
+  {
+    path: '/datasingleactivity',
+    name: 'DataSingleActivity',
+    component: DataSingleActivity
   },
   // {
   //   path: '/about',

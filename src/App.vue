@@ -1,15 +1,19 @@
 <template>
+  <v-app>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/signup">Sign up</router-link> |
-      <router-link to="/signin">Sign in</router-link> |
-      <router-link to="/createproject">Create project</router-link> |
-      <router-link to="/createactivity">Create activity</router-link>
-    </div>
+      <div id="nav" class="d-flex align-center">
+          <router-link to="/">Home</router-link> |
+          <router-link to="/signup">Sign up</router-link> |
+          <router-link to="/signin">Sign in</router-link> |
+          <router-link to="/createproject">Create project</router-link> |
+          <router-link to="/createactivity">Create activity</router-link> |
+          <router-link to="/datasingleactivity">Data</router-link> |
+      </div>
     <router-view/>
-  </div>
+    </div>
+  </v-app>
 </template>
+
 
 <style>
 #app {
@@ -17,7 +21,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: dimgrey;
 }
 
 #nav {
@@ -26,10 +30,7 @@
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: dimgray;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

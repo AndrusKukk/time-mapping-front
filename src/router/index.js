@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Signin from '../views/Signin.vue'
 import Signup from '../views/Signup.vue'
+import Createproject from '../views/Createproject.vue'
+import Createactivity from '../views/Createactivity.vue'
 
 
 Vue.use(VueRouter)
@@ -22,6 +24,16 @@ const routes = [
     path: '/signin',
     name: 'Signin',
     component: Signin
+  },
+  {
+    path: '/createproject',
+    name: 'Createproject',
+    component: Createproject
+  },
+  {
+    path: '/createactivity',
+    name: 'Createactivity',
+    component: Createactivity
   },
   // {
   //   path: '/about',

@@ -1,19 +1,27 @@
 <template>
-  <div id="app" class="text-xs-center" >
-    <h1>Please sign up</h1><br>
-    <v-text-field v-model="users.firstName" placeholder="First name" ></v-text-field><br><br>
-    <v-text-field v-model="users.lastName" placeholder="Last name" ></v-text-field><br><br>
-    <v-text-field v-model="users.email" placeholder="Email" ></v-text-field><br><br>
-    <v-text-field v-model="users.password" type="password" placeholder="Password"></v-text-field><br><br>
-    <v-btn v-on:click="saveInHtml()">Sign up!</v-btn><br><br>
-    <h5 align="center">{{errorText}}</h5>
+  <div id="app" class="text-xs-center">
+    <v-form v-model="valid" class="mb-4" lazy-validation>
+      <h1>Please sign up</h1><br>
+      <v-text-field v-model="firstName" label="First name"></v-text-field>
+      <br><br>
+      <v-text-field v-model="lastName" label="Last name"></v-text-field>
+      <br><br>
+      <v-text-field v-model="email" :rules="emailRules" required label="Email"></v-text-field>
+      <br><br>
+      <v-text-field v-model="password" :rules="passwordRules" required type="password" label="Password"></v-text-field>
+      <br><br>
+      <v-btn :disabled="!valid" @click="saveInHtml()" color="success">Sign up!</v-btn>
+      <br><br>
+      <h5 style="text-align:center">{{ errorText }}</h5>
+    </v-form>
   </div>
 </template>
 <script>
 
 let saveInJn = function () {
   this.$http.post('/public/createuser', this.users)
-      .then(response =>{this.user = response.data
+      .then(response => {
+        this.user = response.data
         this.errorText = ''
 
       })
@@ -28,15 +36,32 @@ export default {
   components: {},
   data: function () {
     return {
-      users: {},
-      user:'',
-      errorText:'',
+      valid: true,
+      users: {
+        firstName: '',
+        lastName: '',
+        password: '',
+        passwordRules: [
+          v => !!v || 'Password is required',
+          v => (v && v.length >= 7) || 'Password must be at least 7 characters',
+        ],
+        email: '',
+        emailRules: [
+          v => !!v || 'E-mail is required',
+          v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+        ]
+      },
+      user: "",
+      errorText: "",
     }
   },
-  methods: {
-    saveInHtml: saveInJn
-  }
-}
 
+  methods: {
+    saveInHtml() {
+      this.$refs.form.saveInHtml()
+      saveInJn()
+    },
+  },
+}
 </script>
 

@@ -1,11 +1,11 @@
 <template>
-  <div id="app" class="signup" >
+  <div id="app" class="text-xs-center" >
     <h1>Please sign up</h1><br>
-    <input id="app" v-model="users.firstName" placeholder="First name" ><br><br>
-    <input id="app" v-model="users.lastName" placeholder="Last name" ><br><br>
-    <input id="app" v-model="users.email" placeholder="Email" ><br><br>
-    <input id="app" v-model="users.password" type="password" placeholder="Password"><br><br>
-    <button v-on:click="saveInHtml()">Sign up!</button><br><br>
+    <v-text-field v-model="users.firstName" placeholder="First name" ></v-text-field><br><br>
+    <v-text-field v-model="users.lastName" placeholder="Last name" ></v-text-field><br><br>
+    <v-text-field v-model="users.email" placeholder="Email" ></v-text-field><br><br>
+    <v-text-field v-model="users.password" type="password" placeholder="Password"></v-text-field><br><br>
+    <v-btn v-on:click="saveInHtml()">Sign up!</v-btn><br><br>
     <h5 align="center">{{errorText}}</h5>
   </div>
 </template>

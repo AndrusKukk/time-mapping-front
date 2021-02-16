@@ -59,7 +59,7 @@ export default {
   components: {},
   data: function () {
     return {
-      valid: false,
+      valid: true,
       activities: {
         projectName: '',
         activityName: '',

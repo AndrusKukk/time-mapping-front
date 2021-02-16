@@ -2,12 +2,12 @@
   <div class="align-center">
     <v-form v-model="valid" lazy-validation style="text-align: center">
       <h1>Toggle your activity</h1><br>
-      <v-text-field v-model="activities.projectName" label="Project name"></v-text-field>
+      <v-text-field v-model="activities.projectName" label="Project name" :disabled="field"></v-text-field>
       <br>
       <v-text-field v-model="activities.activityName" required :rules="activities.nameRules"
-                    label="Activity name"></v-text-field>
+                    label="Activity name" :disabled="field"></v-text-field>
       <br>
-      <v-btn :disabled="!valid" @click="saveInHtml()" color="success"> Toggle </v-btn>
+      <v-btn :disabled="!valid" @click="saveInHtml()" :color="color"> Toggle </v-btn>
     </v-form>
   </div>
 </template>
@@ -42,6 +42,22 @@ export default {
       },
       activity: '',
       errorText: '',
+    }
+  },
+  computed: {
+    field: function(){
+      if (this.activity) {
+        return true
+      } else {
+        return false
+      }
+    },
+    color: function() {
+      if (this.activity) {
+        return "error"
+      } else {
+        return "success"
+      }
     }
   },
   methods: {

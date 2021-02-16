@@ -1,8 +1,13 @@
 <template>
   <div class="createproject">
-    <h1>Please enter project name</h1>
+    <div class="d-flex justify-center mb-6">
+      <h2 class="font-weight-light">Enter project name</h2>
+    </div>
     <v-text-field placeholder="Project name"></v-text-field><br>
-    <v-btn v-on:click="">Create project!</v-btn>
+    <div class="d-flex justify-center mb-6">
+      <v-btn v-on:click="">Create project!</v-btn>
+    </div>
+
   </div>
 </template>
 

@@ -1,18 +1,18 @@
 <template>
   <div id="app" class="text-xs-center">
-    <v-form v-model="valid" class="mb-4" lazy-validation>
+    <v-form v-model="valid" lazy-validation style="text-align: center">
       <h1>Please sign up</h1><br>
-      <v-text-field v-model="firstName" label="First name"></v-text-field>
-      <br><br>
-      <v-text-field v-model="lastName" label="Last name"></v-text-field>
-      <br><br>
-      <v-text-field v-model="email" :rules="emailRules" required label="Email"></v-text-field>
-      <br><br>
-      <v-text-field v-model="password" :rules="passwordRules" required type="password" label="Password"></v-text-field>
-      <br><br>
-      <v-btn :disabled="!valid" @click="saveInHtml()" color="success">Sign up!</v-btn>
-      <br><br>
-      <h5 style="text-align:center">{{ errorText }}</h5>
+      <v-text-field v-model="users.firstName" label="First name"></v-text-field>
+      <br>
+      <v-text-field v-model="users.lastName" label="Last name"></v-text-field>
+      <br>
+      <v-text-field v-model="users.email" :rules="users.emailRules" required label="Email"></v-text-field>
+      <br>
+      <v-text-field v-model="users.password" :rules="users.passwordRules" required type="password" label="Password"></v-text-field>
+      <br>
+      <v-btn :disabled="!valid" @click="saveInHtml()" color="success">Sign up</v-btn>
+      <br>
+      <v-dialog-bottom-transition><h5 style="text-align:center">{{ errorText }}</h5></v-dialog-bottom-transition>
     </v-form>
   </div>
 </template>
@@ -51,17 +51,14 @@ export default {
           v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
         ]
       },
-      user: "",
-      errorText: "",
+      user: '',
+      errorText: '',
     }
   },
 
   methods: {
-    saveInHtml() {
-      this.$refs.form.saveInHtml()
-      saveInJn()
+    saveInHtml : saveInJn
     },
-  },
 }
 </script>
 

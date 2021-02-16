@@ -1,14 +1,17 @@
 <template>
   <div class="createproject">
-    <h1>Please enter project name</h1>
-    <v-text-field placeholder="Project name"></v-text-field><br>
-    <v-btn v-on:click="">Create project!</v-btn>
+    <v-form v-model="valid" lazy-validation style="text-align: center">
+      <h1>Please create your project</h1><br>
+      <v-text-field v-model="projects.projectName" label="Project name" required :rules="projects.nameRules"></v-text-field>
+      <br>
+      <v-btn :disabled="!valid" @click="saveInHtml()" color="success">Create project</v-btn>
+    </v-form>
   </div>
 </template>
 
 <script>
 let saveInJn = function () {
-  this.$http.post('/public/createproject', this.projects)
+  this.$http.post('/time/createproject', this.projects)
       .then(response => {
         this.project = response.data
         this.errorText = ''
@@ -25,11 +28,18 @@ export default {
   components: {},
   data: function () {
     return {
-      projects: {},
-      project: '',
-      errorText: '',
+      valid: true,
+      projects: {
+        projectName: '',
+        nameRules: [
+          v => !!v || 'Project name is required',
+        ],
+        project: '',
+        errorText: '',
+      }
     }
   },
+
   methods: {
     saveInHtml: saveInJn
   }

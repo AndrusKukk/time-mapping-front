@@ -1,16 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/Home.vue'
-import About from '../views/About.vue'
 import Signup from "../views/Signup.vue"
 import Signin from "../views/Signin.vue"
 import Createactivity from "../views/Createactivity.vue"
 import Createproject from "../views/Createproject.vue"
-import DataSingleActivity from "@/views/DataSingleActivity";
+import DataActivity from "@/views/DataActivity"
+import DataProject from "@/views/DataProject";
+import Toggle from "@/views/Toggle";
+
 
 
 Vue.use(Router)
-
 
 
 export default new Router({
@@ -21,11 +22,6 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
-    },
-    {
-      path: '/about',
-      name: 'About',
-      component: About
     },
     {
       path: '/signup',
@@ -48,9 +44,19 @@ export default new Router({
       component: Createproject
     },
     {
-      path: '/datasingleactivity',
-      name: 'Datasingleactivity',
-      component: DataSingleActivity
+      path: '/toggle',
+      name: 'Toggle',
+      component: Toggle
+    },
+    {
+      path: '/dataactivity',
+      name: 'Dataactivity',
+      component: DataActivity
+    },
+    {
+      path: '/dataproject',
+      name: 'Dataproject',
+      component: DataProject
     },
   ]
 })

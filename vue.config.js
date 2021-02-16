@@ -4,6 +4,9 @@ module.exports = {
             '/public': {
                 target: 'http://localhost:8080',
                 changeOrigin: true
+            } , '/time': {
+                target: 'http://localhost:8080',
+                changeOrigin: true
             }
         }
     },

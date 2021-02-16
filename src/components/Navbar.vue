@@ -39,7 +39,10 @@ export default {
         {text: 'Sign in', route: '/signin'},
         {text: 'Create project', route: '/createproject'},
         {text: 'Create activity', route: '/createactivity'},
-        {text: 'Data analysis', route: '/datasingleactivity'},
+        {text: 'Activity analysis', route: '/dataactivity'},
+        {text: 'Project analysis', route: '/dataproject'},
+        {text: 'Timer', route: '/toggle'},
+        {text: 'Sign out', route: '/signout'},
       ]
     }
   }

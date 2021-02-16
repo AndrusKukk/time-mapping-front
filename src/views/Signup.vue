@@ -10,9 +10,36 @@
       <br>
       <v-text-field v-model="users.password" :rules="users.passwordRules" required type="password" label="Password"></v-text-field>
       <br>
-      <v-btn :disabled="!valid" @click="saveInHtml()" color="success">Sign up</v-btn>
-      <br>
-      <v-dialog-bottom-transition><h5 style="text-align:center">{{ errorText }}</h5></v-dialog-bottom-transition>
+      <v-dialog
+          transition="dialog-bottom-transition"
+          max-width="600">
+        <template v-slot:activator="{ on, attrs }">
+      <v-btn :disabled="!valid" @click="saveInHtml()" color="success" v-bind="attrs"
+             v-on="on">Sign up</v-btn>
+        </template>
+
+        <template v-slot:default="dialog">
+          <v-card>
+            <v-toolbar
+                color="warning"
+                dark
+            >
+            </v-toolbar>
+            <v-card-text>
+              <br>
+              <h3>{{user}}</h3>
+              <h3>{{errorText}}</h3>
+            </v-card-text>
+            <v-card-actions class="justify-end">
+              <v-btn
+                  text
+                  @click="dialog.value = false"
+              >Close
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </template>
+      </v-dialog>
     </v-form>
   </div>
 </template>

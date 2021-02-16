@@ -1,8 +1,14 @@
 <template>
   <div class="signin">
-    <h1>Please sign in</h1>
+    <div class="d-flex justify-center mb-6">
+      <h2 class="font-weight-light">Sign in</h2>
+    </div>
     <v-text-field placeholder="Email"></v-text-field><br>
-    <v-text-field placeholder="Password"></v-text-field><br><br>
-    <v-btn v-on:click="">Sign in!</v-btn>
+    <v-text-field placeholder="Password"></v-text-field><br>
+    <div class="d-flex justify-center mb-6">
+      <v-btn v-on:click="">Sign in!</v-btn>
+    </div>
+
+
   </div>
 </template>

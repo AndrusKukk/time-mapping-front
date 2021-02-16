@@ -1,12 +1,18 @@
 <template>
-  <div id="app" class="text-xs-center" >
-    <h1>Please sign up</h1><br>
-    <v-text-field v-model="users.firstName" placeholder="First name" ></v-text-field><br><br>
-    <v-text-field v-model="users.lastName" placeholder="Last name" ></v-text-field><br><br>
-    <v-text-field v-model="users.email" placeholder="Email" ></v-text-field><br><br>
-    <v-text-field v-model="users.password" type="password" placeholder="Password"></v-text-field><br><br>
-    <v-btn v-on:click="saveInHtml()">Sign up!</v-btn><br><br>
-    <h5 align="center">{{errorText}}</h5>
+  <div id="app">
+    <div class="d-flex justify-center mb-6">
+      <h2 class="font-weight-light" >Sign up</h2><br>
+    </div>
+    <v-text-field v-model="users.firstName" placeholder="First name" ></v-text-field><br>
+    <v-text-field v-model="users.lastName" placeholder="Last name" ></v-text-field><br>
+    <v-text-field v-model="users.email" placeholder="Email" ></v-text-field><br>
+    <v-text-field v-model="users.password" type="password" placeholder="Password"></v-text-field><br>
+    <div class="d-flex justify-center mb-6">
+      <v-btn v-on:click="saveInHtml()">Sign up!</v-btn><br>
+      <h5>{{errorText}}</h5>
+    </div>
+
+
   </div>
 </template>
 <script>

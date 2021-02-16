@@ -1,14 +1,15 @@
 <template>
   <div class="align-center">
     <v-form v-model="valid" lazy-validation style="text-align: center">
-      <h1>Toggle your activity</h1><br>
+      <h1>Time your activity</h1><br>
       <v-text-field v-model="activities.projectName" label="Project name" :disabled="field"></v-text-field>
       <br>
       <v-text-field v-model="activities.activityName" required :rules="activities.nameRules"
                     label="Activity name" :disabled="field"></v-text-field>
       <br>
-      <v-btn :disabled="!valid" @click="saveInHtml()" :color="color"> Toggle </v-btn>
+      <v-btn :disabled="!valid" @click="saveInHtml()" :color="color">{{label}}</v-btn>
     </v-form>
+    <h3 >{{errorText}}</h3>
   </div>
 </template>
 
@@ -45,6 +46,13 @@ export default {
     }
   },
   computed: {
+    label: function() {
+      if (this.activity) {
+        return "Stop timer"
+      } else {
+        return "Start timer"
+      }
+    },
     field: function(){
       if (this.activity) {
         return true

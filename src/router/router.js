@@ -8,8 +8,6 @@ import Createproject from "../views/Createproject.vue"
 import DataActivity from "@/views/DataActivity"
 import DataProject from "@/views/DataProject";
 import Toggle from "@/views/Toggle";
-import Signout from "@/views/Signout";
-
 
 
 Vue.use(Router)
@@ -58,11 +56,6 @@ export default new Router({
       path: '/dataproject',
       name: 'Dataproject',
       component: DataProject
-    },
-    {
-      path: '/signout',
-      name: 'Signout',
-      component: Signout
     },
   ]
 })

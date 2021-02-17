@@ -45,7 +45,7 @@ let saveInJn = function () {
         this.errorText = ''
         localStorage.setItem('user-token', response.data)
         this.$http.defaults.headers.common['Authorization'] = "Bearer " + response.data
-        this.login = 'Login successful.'
+        this.login = 'Sign in successful.'
       })
       .catch(error => {
         this.errorText = error.response.data.errorMessage

@@ -8,7 +8,7 @@
       ></v-img>
     </div>
     <div class="d-flex justify-center mb-12">
-      <h1 class="font-weight-light">Time mapping app</h1>
+      <h1 class="font-weight-light">Time mapping app</h1><br>
     </div>
   </div>
 </template>

@@ -27,6 +27,9 @@
             <v-list-item-title class="white--text">{{ link.text }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+        <v-list-item>
+          <v-btn>Sign out</v-btn>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
@@ -47,10 +50,10 @@ export default {
         {text: 'Sign in', route: '/signin'},
         {text: 'Create project', route: '/createproject'},
         {text: 'Create activity', route: '/createactivity'},
+        {text: 'Timer', route: '/toggle'},
         {text: 'Activity analysis', route: '/dataactivity'},
         {text: 'Project analysis', route: '/dataproject'},
-        {text: 'Timer', route: '/toggle'},
-        {text: 'Sign out', route: '/signout'},
+        // {text: 'Sign out', route: '/signout'},
       ]
 
     }

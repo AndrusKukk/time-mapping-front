@@ -7,9 +7,30 @@
       <v-text-field v-model="activities.activityName" required :rules="activities.nameRules"
                     label="Activity name" :disabled="field"></v-text-field>
       <br>
-      <v-btn :disabled="!valid" @click="saveInHtml()" :color="color">{{label}}</v-btn>
+      <v-btn :disabled="!valid" @click="saveInHtml()" :color="color">{{ label }}
+      </v-btn>
+      <v-card v-show="errorText"
+              max-width="600"
+              class="mx-auto my-12"
+      >
+        <v-toolbar
+            color="warning"
+            dark
+        >
+        </v-toolbar>
+        <v-card-text>
+          <br>
+          <h3>{{ errorText }}</h3>
+        </v-card-text>
+        <v-card-actions class="justify-end">
+          <v-btn
+              text
+              @click="errorText=''"
+          >Close
+          </v-btn>
+        </v-card-actions>
+      </v-card>
     </v-form>
-    <h3 >{{errorText}}</h3>
   </div>
 </template>
 
@@ -46,21 +67,21 @@ export default {
     }
   },
   computed: {
-    label: function() {
+    label: function () {
       if (this.activity) {
         return "Stop timer"
       } else {
         return "Start timer"
       }
     },
-    field: function(){
+    field: function () {
       if (this.activity) {
         return true
       } else {
         return false
       }
     },
-    color: function() {
+    color: function () {
       if (this.activity) {
         return "error"
       } else {

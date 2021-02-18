@@ -62,6 +62,7 @@ export default {
         {text: 'Sign in', route: '/signin'}
       ],
       links: [
+        {text: 'Home', route: '/'},
         {text: 'Create project', route: '/createproject'},
         {text: 'Create activity', route: '/createactivity'},
         {text: 'Timer', route: '/toggle'},

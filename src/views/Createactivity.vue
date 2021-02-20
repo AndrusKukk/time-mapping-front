@@ -2,7 +2,7 @@
   <div class="align-center">
     <v-form v-model="valid" lazy-validation style="text-align: center">
     <h1>Please create your activity</h1><br>
-    <v-text-field v-model="activities.projectName" label="Project name"></v-text-field><br>
+    <v-text-field v-model="activities.projectName" label="Project name (optional)"></v-text-field><br>
     <v-text-field v-model="activities.activityName" required :rules="activities.nameRules" label="Activity name"></v-text-field><br>
     <v-text-field v-model="activities.activityHourlyRate" label="Activity hourly rate"></v-text-field><br>
       <v-dialog

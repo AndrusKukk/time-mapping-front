@@ -1,8 +1,16 @@
 <template>
   <div id="app" class="data">
     <v-form v-model="valid" lazy-validation style="text-align: center">
-      <h1>Check your project data</h1><br>
-      <v-text-field v-model="projectName" required :rules="nameRules" label="Project name"></v-text-field>
+      <h1>Check the time spent on your project</h1><br>
+      <v-row>
+      <v-select
+          :items="items"
+          item-text="projectName"
+          item-value="projectId"
+          dense
+          v-model="projectId" required :rules="nameRules" label="Select your project">
+      </v-select>
+      </v-row>
       <br>
       <v-row justify="space-around">
         <v-date-picker color="grey"
@@ -68,8 +76,9 @@
 let saveInJn = function () {
   this.$http.get('/time/data/project', {
     params: {
-      projectName: this.projectName,
-      startTime: this.startTime, stopTime: this.stopTime
+      projectId: this.projectId,
+      startTime: this.startTime,
+      stopTime: this.stopTime
     }
   })
       .then(response => {
@@ -88,19 +97,30 @@ export default {
   components: {},
   data: function () {
     return {
+      items: [],
       valid: true,
-      projectName: '',
+      projectId: this.projectId,
       nameRules: [
         v => !!v || 'Project name is required',
       ],
       startTime: this.startTime,
       stopTime: this.stopTime,
       dataProject: '',
-      errorText: '',
+      errorText: ''
     }
   },
   methods: {
     saveInHtml: saveInJn
+  },
+  mounted() {
+    const token = localStorage.getItem('user-token')
+    if (token) {
+      this.$http.defaults.headers.common['Authorization'] = "Bearer " + token
+    }
+    this.$http.get( 'time/data/projectslist')
+        .then(response => {
+          this.items = response.data
+        });
   }
 }
 </script>

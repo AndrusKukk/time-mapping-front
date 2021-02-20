@@ -9,12 +9,14 @@ Vue.prototype.$http = axios
 Vue.prototype.$host = ""
 
 new Vue({
-  router,
-  vuetify,
-  render: function (h) { return h(App) }
+    router,
+    vuetify,
+    render: function (h) {
+        return h(App)
+    }
 }).$mount('#app')
 
 const token = localStorage.getItem('user-token')
 if (token) {
-  axios.defaults.headers.common['Authorization']="Bearer "+token
+    axios.defaults.headers.common['Authorization'] = "Bearer " + token
 }

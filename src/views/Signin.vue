@@ -11,7 +11,7 @@
           transition="dialog-bottom-transition"
           max-width="600">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn :disabled="!valid" @click="saveInHtml()" color="success" v-bind="attrs"
+          <v-btn :disabled="!valid" @click="saveInHtml()" @keyup.enter="saveInHtml()" color="success" v-bind="attrs"
                  v-on="on">Sign in
           </v-btn>
         </template>
@@ -44,8 +44,6 @@
 
 <script>
 
-import router from "@/router/router";
-
 let saveInJn = function () {
   this.$http.post('/public/login', this.logins)
       .then(response => {
@@ -54,12 +52,12 @@ let saveInJn = function () {
         this.$http.defaults.headers.common['Authorization'] = "Bearer " + response.data
         this.login = 'Sign in successful.'
         setTimeout(function () {
-          location.reload(), 5000 * 60 * 60
-        })
-            .catch(error => {
-              this.errorText = error.response.data.errorMessage
-              this.login = ''
-            })
+          location.reload()
+        }, 4000)
+      })
+      .catch(error => {
+        this.errorText = error.response.data.errorMessage
+        this.login = ''
       })
 }
 export default {

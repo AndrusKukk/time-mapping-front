@@ -1,6 +1,6 @@
 <template>
   <div class="signin">
-    <v-form v-model="valid" lazy-validation style="text-align: center">
+    <v-form v-model="valid" lazy-validation style="text-align: center" v-on:keyup.enter="saveInHtml()">
       <h1>Please sign in</h1><br>
       <v-text-field v-model="logins.email" required :rules="logins.emailRules" label="Email"></v-text-field>
       <br>
@@ -70,6 +70,7 @@ export default {
         email: '',
         emailRules: [
           v => !!v || 'E-mail is required',
+          v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
         ],
         password: '',
         passwordRules: [
